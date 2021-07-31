@@ -1,0 +1,28 @@
+<html lang="pt-BR">
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+<%- include('./partials/nav.ejs') %>
+<div class="details content">
+    <h2><%= blog.title %></h2>
+    <div class="content">
+        <p><%= blog.body %></p>
+    </div>
+    <a class="delete" data-doc="<%= blog._id %>">delete</a>
+</div>
+
+<%- include('./partials/footer.ejs') %>
+</body>
+<script>
+    const deleteBlog = document.querySelector('a.delete');
+    deleteBlog.addEventListener('click', (element) => {
+      const endpoint = `/blogs/${deleteBlog.dataset.doc}`;
+      fetch(endpoint, {
+        method: 'DELETE'
+      }).then((response) => response.json())
+        .then((data) => location.href = data.redirect)
+        .catch((err) => console.log('Delete error: ', err))
+    });
+</script>
+</html>

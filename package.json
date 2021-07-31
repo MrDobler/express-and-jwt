@@ -1,0 +1,16 @@
+{
+  "name": "node-testing",
+  "main": "app.js",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "express app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.5",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
